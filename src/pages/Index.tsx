@@ -4,12 +4,13 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Flame, ShoppingCart, Plus, Minus, Phone, MapPin, X, Code, MessageCircle } from "lucide-react";
 import heroBurger from "@/assets/hero-burger.jpg";
-import burgerClassic from "@/assets/burger-classic.jpg";
-import hotdogDeluxe from "@/assets/hotdog-deluxe.jpg";
-import friesPortion from "@/assets/fries-portion.jpg";
-import chickenTenders from "@/assets/chicken-tenders.jpg";
-import burgerChicken from "@/assets/burger-chicken.jpg";
-import friesLoaded from "@/assets/fries-loaded.jpg";
+import patySimple from "@/assets/paty-simple.jpeg";
+import patyDoble from "@/assets/paty-doble.jpeg";
+import cocaCola from "@/assets/coca-cola.png";
+import cocoImg from "@/assets/coco.png";
+import limonada from "@/assets/limonada-con-menta-y-gengibre.png";
+import maracuya from "@/assets/maracuya.png";
+import salsa from "@/assets/salsa.jpeg";
 
 interface MenuItem {
   id: number;
@@ -17,7 +18,7 @@ interface MenuItem {
   price: number;
   description: string;
   image: string;
-  category: "sandwiches" | "bebidas";
+  category: "sandwiches" | "bebidas" | "salsas";
 }
 
 interface CartItem extends MenuItem {
@@ -36,7 +37,7 @@ const Index = () => {
       name: "PATY SIMPLE",
       price: 6000,
       description: "Huevo, Jamón, Queso, Lechuga, Tomate",
-      image: burgerClassic,
+      image: patySimple,
       category: "sandwiches",
     },
     {
@@ -44,48 +45,72 @@ const Index = () => {
       name: "PATY DOBLE",
       price: 8000,
       description: "Doble huevo, Doble jamón, Doble queso, Lechuga, Tomate",
-      image: burgerChicken,
+      image: patyDoble,
       category: "sandwiches",
     },
     {
       id: 3,
-      name: "LOMITO",
-      price: 8000,
-      description: "Doble bife de lomo calidad premium, mozzarella, jamón, huevo, lechuga, tomate",
-      image: hotdogDeluxe,
-      category: "sandwiches",
-    },
-    {
-      id: 4,
       name: "COCA-COLA",
       price: 2500,
       description: "Bebida refrescante",
-      image: friesPortion,
+      image: cocaCola,
+      category: "bebidas",
+    },
+    {
+      id: 4,
+      name: "LIMONADA MENTA Y JENGIBRE",
+      price: 1600,
+      description: "Bebida natural refrescante",
+      image: limonada,
       category: "bebidas",
     },
     {
       id: 5,
-      name: "LIMONADA MENTA Y JENGIBRE",
-      price: 1600,
-      description: "Bebida natural refrescante",
-      image: chickenTenders,
+      name: "MARACUYÁ",
+      price: 600,
+      description: "Bebida tropical",
+      image: maracuya,
       category: "bebidas",
     },
     {
       id: 6,
-      name: "MARACUYÁ",
+      name: "COCO",
       price: 600,
       description: "Bebida tropical",
-      image: friesLoaded,
+      image: cocoImg,
       category: "bebidas",
     },
     {
       id: 7,
-      name: "COCO",
-      price: 600,
-      description: "Bebida tropical",
-      image: burgerClassic,
-      category: "bebidas",
+      name: "GUACAMOLE",
+      price: 1500,
+      description: "Salsa premium",
+      image: salsa,
+      category: "salsas",
+    },
+    {
+      id: 8,
+      name: "CHOCLO",
+      price: 1200,
+      description: "Salsa tradicional",
+      image: salsa,
+      category: "salsas",
+    },
+    {
+      id: 9,
+      name: "CRIOLLA",
+      price: 1200,
+      description: "Salsa casera",
+      image: salsa,
+      category: "salsas",
+    },
+    {
+      id: 10,
+      name: "APÍO",
+      price: 1200,
+      description: "Salsa especial",
+      image: salsa,
+      category: "salsas",
     },
   ];
 
@@ -139,6 +164,7 @@ const Index = () => {
 
   const sandwiches = menuItems.filter((item) => item.category === "sandwiches");
   const bebidas = menuItems.filter((item) => item.category === "bebidas");
+  const salsas = menuItems.filter((item) => item.category === "salsas");
 
   return (
     <div className="min-h-screen bg-deep-black text-foreground">
@@ -189,7 +215,7 @@ const Index = () => {
               </h2>
               <div className="h-1 w-16 bg-vibrant-red ml-4"></div>
             </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6 max-w-2xl mx-auto">
               {sandwiches.map((item) => (
                 <Card
                   key={item.id}
@@ -235,8 +261,51 @@ const Index = () => {
               </h2>
               <div className="h-1 w-16 bg-vibrant-red ml-4"></div>
             </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {bebidas.map((item) => (
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
+                <Card
+                  key={item.id}
+                  className="overflow-hidden bg-card border-2 border-border hover:border-vibrant-red transition-all duration-300"
+                >
+                  <div className="aspect-square overflow-hidden">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                    />
+                  </div>
+                  <div className="p-5">
+                    <h3 className="font-heading text-2xl font-bold mb-2 text-white tracking-wide">
+                      {item.name}
+                    </h3>
+                    <p className="text-light-gray text-sm mb-4 line-clamp-2">
+                      {item.description}
+                    </p>
+                    <div className="flex items-center justify-between">
+                      <span className="font-heading text-3xl font-bold text-golden-yellow">
+                        ${item.price}
+                      </span>
+                      <Button
+                        className="bg-vibrant-red hover:bg-vibrant-red/90 text-white font-heading tracking-wide"
+                        onClick={() => addToCart(item)}
+                      >
+                        AGREGAR
+                      </Button>
+                    </div>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          {/* Salsas */}
+          <div>
+            <div className="flex items-center justify-center mb-8">
+              <div className="h-1 w-16 bg-vibrant-red mr-4"></div>
+              <h2 className="font-heading text-5xl md:text-6xl font-bold text-white tracking-wider">
+                SALSAS
+              </h2>
+              <div className="h-1 w-16 bg-vibrant-red ml-4"></div>
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+              {salsas.map((item) => (
                 <Card
                   key={item.id}
                   className="overflow-hidden bg-card border-2 border-border hover:border-vibrant-red transition-all duration-300"
@@ -274,7 +343,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Footer */}
+      {/* OLD - TO BE REMOVED */}}
       <footer className="bg-charcoal text-white py-12 border-t-2 border-vibrant-red">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8 mb-8">
@@ -286,7 +355,7 @@ const Index = () => {
                 </h3>
               </div>
               <p className="text-light-gray">
-                Hamburguesas y Lomitos Premium
+                Sandwiches y Mas en Tartagal
               </p>
             </div>
             <div className="text-center">
