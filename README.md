@@ -1,70 +1,63 @@
-# 🍔 Alta Pinta Fast Food - Digital Transformation
+# 🍔 Alta Pinta - Sandwiches y Mas | Digital Transformation
 
-![Project Status](https://img.shields.io/badge/Status-Prototype%20%2F%20Sales%20Pitch-orange)
+![Project Status](https://img.shields.io/badge/Status-Live%20%2F%20Production-brightgreen)
 ![Tech Stack](https://img.shields.io/badge/Tech-React%20%7C%20Tailwind%20%7C%20Vite-blue)
 
-> A modern, mobile-first frontend solution designed to modernize a local meat distributor and fast-food business in Argentina.
+> Una solución moderna y mobile-first diseñada para modernizar una comercio local de sándwiches y más en Tartagal, Salta, Argentina.
 
-![Project Cover](./cover.png)
-## 🎯 Project Background & Objective
+## 🎯 Contexto & Objetivo
 
-**Alta Pinta** is a traditional local business in Tartagal (Salta, Argentina) comprising a butcher shop, a meat distributor, and a fast-food venue. Despite their strong physical presence and high-quality products, their digital footprint was non-existent (manual orders via phone, no website, low Google visibility).
+**Alta Pinta** es un emprendimiento tradicional en Tartagal (Salta, Argentina) especializado en sándwiches premium, bebidas y salsas caseras. A pesar de tener una fuerte presencia física y productos de alta calidad, su huella digital era inexistente (pedidos manuales por teléfono, sin sitio web, baja visibilidad en Google).
 
-**The Goal:** To design and develop a high-conversion landing page that serves as a digital menu and ordering system, bridging the gap between their premium physical product and the digital customer experience.
+**El Objetivo:** Diseñar y desarrollar una página de aterrizaje de alta conversión que sirva como menú digital y sistema de pedidos, cerrando la brecha entre su excelente producto físico y la experiencia digital del cliente.
 
-## 🚀 Key Features
+## 🚀 Características Clave
 
-* **Mobile-First Design:** Optimized for the 90% of customers who order food via smartphones.
-* **Frictionless Ordering (WhatsApp API):** Instead of a complex backend, the cart generates a pre-formatted message sent directly to the restaurant's WhatsApp, aligning with local user behavior in Argentina.
-* **Brand Identity Alignment:** Digital translation of their physical branding (Industrial/Street Food vibe) using Dark Mode, Bold Typography, and Appetite Appeal colors.
-* **Visual Menu:** High-quality presentation of products (Burgers, Lomitos, Pizzas) replacing PDF menus that are hard to read on mobile.
-* **Performance:** Lightning-fast load times using Vite and optimized assets.
+* **Diseño Mobile-First:** Optimizado para el 90% de clientes que piden comida desde smartphones.
+* **Pedidos sin Fricción (WhatsApp API):** En lugar de un backend complejo, el carrito genera un mensaje pre-formateado que se envía directamente al WhatsApp del restaurante, alineándose con el comportamiento del usuario local.
+* **Alineación de Identidad de Marca:** Traducción digital de su marca física usando Modo Oscuro, Tipografía Audaz y Colores que Estimulan el Apetito.
+* **Menú Visual:** Presentación de alta calidad de productos (Sándwiches, Bebidas, Salsas) reemplazando menús en PDF difíciles de leer en móvil.
+* **Rendimiento:** Tiempos de carga ultra rápidos usando Vite y assets optimizados.
 
 ## 🛠️ Tech Stack
 
 * **Core:** [React.js](https://reactjs.org/)
 * **Styling:** [Tailwind CSS](https://tailwindcss.com/)
 * **Icons:** [Lucide React](https://lucide.dev/)
-* **UI Components:** Custom components based on Shadcn/UI principles (Cards, Buttons, Badges).
-* **Deployment:** Vercel / Lovable
+* **UI Components:** Componentes personalizados basados en principios de Shadcn/UI
+* **Deployment:** Vercel
 
-## 📸 Screenshots
+## 💡 Lógica de Negocio (¿Por qué este stack?)
 
-| Mobile View | Menu Grid | Cart Interaction |
-|:---:|:---:|:---:|
-| *[Place Screenshot 1]* | *[Place Screenshot 2]* | *[Place Screenshot 3]* |
+Dado que el cliente gestiona un pequeño equipo sin departamento informático, un backend complejo con base de datos introduciría fricción innecesaria y costos de mantenimiento.
 
-## 💡 The Business Logic (Why this stack?)
+Elegí un **enfoque Frontend sin Estado**:
+1. **Bajo Mantenimiento:** Sin base de datos que gestionar.
+2. **Costo Cero en Hosting:** Puede alojarse en tiers gratuitos de Vercel/Netlify.
+3. **Alta Confiabilidad:** Se basa en WhatsApp (que ya usan) para el procesamiento de pedidos.
 
-Since the client manages a small team with no IT department, a complex backend with a database would introduce unnecessary friction and maintenance costs. 
+## 🔧 Cómo Ejecutar Localmente
 
-I chose a **Stateless Frontend approach**:
-1.  **Low Maintenance:** No database to manage.
-2.  **Zero Cost Hosting:** Can be hosted on Vercel/Netlify free tiers.
-3.  **High Reliability:** Relies on WhatsApp (which they already use) for the "backend" order processing.
-
-## 🔧 How to Run Locally
-
-1.  **Clone the repository**
+1. **Clonar el repositorio**
     ```bash
-    git clone [https://github.com/your-username/el-palacio-frontend.git](https://github.com/your-username/el-palacio-frontend.git)
+    git clone https://github.com/tu-usuario/altapinta.git
     ```
-2.  **Install dependencies**
+2. **Instalar dependencias**
     ```bash
-    cd el-palacio-frontend
+    cd altapinta
     npm install
     ```
-3.  **Run the development server**
+3. **Ejecutar el servidor de desarrollo**
     ```bash
     npm run dev
     ```
 
-## 👨‍💻 Author
+## 👨‍💻 Autor
 
-**Juliano Conzatti** *Full Stack Developer & Digital Strategist*
+**Juliano Conzatti** *Desarrollador Full Stack & Estratega Digital*
 
-[![Portfolio](https://img.shields.io/badge/Portfolio-Visit%20Site-brightgreen)](https://julianoconzatti.vercel.app/)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue)](https://linkedin.com/in/seu-linkedin)
+[![Portfolio](https://img.shields.io/badge/Portfolio-Visita%20mi%20Sitio-brightgreen)](https://julianoconzatti.vercel.app/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Conecta-blue)](https://linkedin.com/in/su-linkedin)
 
 ---
-*Note: This project was developed as a strategic proposal to digitize a real-world local business.*
+*Nota: Este proyecto fue desarrollado como una propuesta estratégica para digitalizar un negocio local real.*
