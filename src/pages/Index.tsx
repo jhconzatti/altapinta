@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Flame, ShoppingCart, Plus, Minus, Phone, Instagram, Facebook, MapPin, X, Code } from "lucide-react";
+import { Flame, ShoppingCart, Plus, Minus, Phone, MapPin, X, Code, MessageCircle } from "lucide-react";
 import heroBurger from "@/assets/hero-burger.jpg";
 import burgerClassic from "@/assets/burger-classic.jpg";
 import hotdogDeluxe from "@/assets/hotdog-deluxe.jpg";
@@ -17,7 +17,7 @@ interface MenuItem {
   price: number;
   description: string;
   image: string;
-  category: "hamburguesas" | "sandwiches";
+  category: "sandwiches" | "bebidas";
 }
 
 interface CartItem extends MenuItem {
@@ -28,43 +28,27 @@ const Index = () => {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
   
-  const whatsappNumber = "+5547991841464";
+  const whatsappNumber = "+543873558381";
 
   const menuItems: MenuItem[] = [
     {
       id: 1,
-      name: "KING BURGER",
-      price: 7000,
-      description: "100% carne premium, barbacoa, panceta, cebolla caramelizada, cheddar",
+      name: "PATY SIMPLE",
+      price: 6000,
+      description: "Huevo, Jamón, Queso, Lechuga, Tomate",
       image: burgerClassic,
-      category: "hamburguesas",
+      category: "sandwiches",
     },
     {
       id: 2,
-      name: "QUEEN BURGER",
-      price: 7000,
-      description: "Ajonesa, huevo, queso cheddar, cebolla morada, tomates frescos",
+      name: "PATY DOBLE",
+      price: 8000,
+      description: "Doble huevo, Doble jamón, Doble queso, Lechuga, Tomate",
       image: burgerChicken,
-      category: "hamburguesas",
+      category: "sandwiches",
     },
     {
       id: 3,
-      name: "PALACIO BURGER",
-      price: 7000,
-      description: "Mayonesa, jamón, mozzarella, huevo, lechuga, tomate",
-      image: burgerClassic,
-      category: "hamburguesas",
-    },
-    {
-      id: 4,
-      name: "KID BURGER",
-      price: 5500,
-      description: "Mayonesa y mozzarella",
-      image: burgerChicken,
-      category: "hamburguesas",
-    },
-    {
-      id: 5,
       name: "LOMITO",
       price: 8000,
       description: "Doble bife de lomo calidad premium, mozzarella, jamón, huevo, lechuga, tomate",
@@ -72,28 +56,36 @@ const Index = () => {
       category: "sandwiches",
     },
     {
-      id: 6,
-      name: "MATAMBRE",
-      price: 7000,
-      description: "Matambre vacuno, mayonesa, criollita, chimichurri",
+      id: 4,
+      name: "COCA-COLA",
+      price: 2500,
+      description: "Bebida refrescante",
+      image: friesPortion,
+      category: "bebidas",
+    },
+    {
+      id: 5,
+      name: "LIMONADA MENTA Y JENGIBRE",
+      price: 1600,
+      description: "Bebida natural refrescante",
       image: chickenTenders,
-      category: "sandwiches",
+      category: "bebidas",
+    },
+    {
+      id: 6,
+      name: "MARACUYÁ",
+      price: 600,
+      description: "Bebida tropical",
+      image: friesLoaded,
+      category: "bebidas",
     },
     {
       id: 7,
-      name: "MECHADO DE ASADO",
-      price: 7000,
-      description: "Asado desmechado, salsa de ajo, cebolla encurtida",
-      image: friesPortion,
-      category: "sandwiches",
-    },
-    {
-      id: 8,
-      name: "MILANESA",
-      price: 8000,
-      description: "100% Premium, mozzarella, jamón, huevo, lechuga, tomate",
-      image: friesLoaded,
-      category: "sandwiches",
+      name: "COCO",
+      price: 600,
+      description: "Bebida tropical",
+      image: burgerClassic,
+      category: "bebidas",
     },
   ];
 
@@ -140,13 +132,13 @@ const Index = () => {
       .map((item) => `${item.quantity}x ${item.name} ($${item.price})`)
       .join(", ");
     const total = getTotalPrice();
-    const message = `Hola El Palacio, quiero pedir: ${itemsList}. Total: $${total}. Mi dirección es: `;
+    const message = `Hola Alta Pinta, quiero pedir: ${itemsList}. Total: $${total}. Mi dirección es: `;
     const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappLink, "_blank");
   };
 
-  const hamburguesas = menuItems.filter((item) => item.category === "hamburguesas");
   const sandwiches = menuItems.filter((item) => item.category === "sandwiches");
+  const bebidas = menuItems.filter((item) => item.category === "bebidas");
 
   return (
     <div className="min-h-screen bg-deep-black text-foreground">
@@ -163,12 +155,12 @@ const Index = () => {
             <Flame className="w-16 h-16 text-vibrant-red animate-pulse" />
           </div>
           <h1 className="font-heading text-6xl md:text-8xl font-bold text-white mb-4 tracking-wider">
-            EL PALACIO
+            ALTA PINTA
             <br />
             FAST FOOD
           </h1>
           <p className="text-xl md:text-2xl text-light-gray mb-6">
-            Hamburguesas y Lomitos Premium en Tartagal
+            Sandwiches y Mas en Tartagal
           </p>
           <Badge className="bg-vibrant-red text-white text-lg px-6 py-3 mb-8 border-2 border-vibrant-red">
             TODOS LOS SÁNDWICHES INCLUYEN PAPAS
@@ -188,17 +180,17 @@ const Index = () => {
       {/* Menu Section */}
       <section id="menu" className="py-20 bg-deep-black">
         <div className="container mx-auto px-4">
-          {/* Hamburguesas */}
+          {/* Sandwiches */}
           <div className="mb-16">
             <div className="flex items-center justify-center mb-8">
               <div className="h-1 w-16 bg-vibrant-red mr-4"></div>
               <h2 className="font-heading text-5xl md:text-6xl font-bold text-white tracking-wider">
-                NUESTRAS BURGERS
+                SANDWICHES
               </h2>
               <div className="h-1 w-16 bg-vibrant-red ml-4"></div>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {hamburguesas.map((item) => (
+              {sandwiches.map((item) => (
                 <Card
                   key={item.id}
                   className="overflow-hidden bg-card border-2 border-border hover:border-vibrant-red transition-all duration-300"
@@ -234,17 +226,17 @@ const Index = () => {
             </div>
           </div>
 
-          {/* Lomitos y Sandwiches */}
+          {/* Bebidas */}
           <div>
             <div className="flex items-center justify-center mb-8">
               <div className="h-1 w-16 bg-vibrant-red mr-4"></div>
               <h2 className="font-heading text-5xl md:text-6xl font-bold text-white tracking-wider">
-                LOMITOS Y SANDWICHES
+                BEBIDAS
               </h2>
               <div className="h-1 w-16 bg-vibrant-red ml-4"></div>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {sandwiches.map((item) => (
+              {bebidas.map((item) => (
                 <Card
                   key={item.id}
                   className="overflow-hidden bg-card border-2 border-border hover:border-vibrant-red transition-all duration-300"
@@ -290,7 +282,7 @@ const Index = () => {
               <div className="flex items-center justify-center md:justify-start mb-4">
                 <Flame className="w-10 h-10 text-vibrant-red mr-2" />
                 <h3 className="font-heading text-3xl font-bold text-white tracking-wider">
-                  EL PALACIO
+                  ALTA PINTA
                 </h3>
               </div>
               <p className="text-light-gray">
@@ -304,36 +296,32 @@ const Index = () => {
               <div className="space-y-2 text-light-gray">
                 <div className="flex items-center justify-center gap-2">
                   <MapPin className="w-5 h-5 text-vibrant-red" />
-                  <span>Tartagal, Salta, Argentina</span>
+                  <span>B 200 Viviendas Mza. A - Tartagal, Salta</span>
                 </div>
                 <div className="flex items-center justify-center gap-2">
                   <Phone className="w-5 h-5 text-vibrant-red" />
-                  <span>(387) 123-4567</span>
+                  <span>(387) 3873-558381</span>
                 </div>
               </div>
             </div>
             <div className="text-center md:text-right">
               <h4 className="font-heading text-xl font-bold mb-4 tracking-wide">
-                SÍGUENOS
+                CONTACTO DIRECTO
               </h4>
               <div className="flex gap-4 justify-center md:justify-end">
-                <a
-                  href="https://www.instagram.com/fastfood_elpalacio/"
-                  className="w-12 h-12 rounded-lg bg-vibrant-red/20 flex items-center justify-center hover:bg-vibrant-red transition-colors border border-vibrant-red"
-                >
-                  <Instagram className="w-6 h-6" />
-                </a>
-                <a
-                  href="#"
-                  className="w-12 h-12 rounded-lg bg-vibrant-red/20 flex items-center justify-center hover:bg-vibrant-red transition-colors border border-vibrant-red"
-                >
-                  <Facebook className="w-6 h-6" />
-                </a>
                 <a
                   href={`https://wa.me/${whatsappNumber}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 rounded-lg bg-vibrant-red/20 flex items-center justify-center hover:bg-vibrant-red transition-colors border border-vibrant-red"
+                  title="WhatsApp"
+                >
+                  <MessageCircle className="w-6 h-6" />
+                </a>
+                <a
+                  href={`tel:${whatsappNumber}`}
+                  className="w-12 h-12 rounded-lg bg-vibrant-red/20 flex items-center justify-center hover:bg-vibrant-red transition-colors border border-vibrant-red"
+                  title="Llamar"
                 >
                   <Phone className="w-6 h-6" />
                 </a>
@@ -341,7 +329,7 @@ const Index = () => {
             </div>
           </div>
           <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-neutral-400">
-            <p>&copy; 2025 El Palacio Fast Food. Todos los derechos reservados.</p>
+            <p>&copy; 2025 Alta Pinta Fast Food. Todos los derechos reservados.</p>
             
             <a 
               href="https://julianoconzatti.vercel.app/" 

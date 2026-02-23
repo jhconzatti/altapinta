@@ -1,4 +1,4 @@
-# 🍔 El Palacio Fast Food - Digital Transformation
+# 🍔 Alta Pinta Fast Food - Digital Transformation
 
 ![Project Status](https://img.shields.io/badge/Status-Prototype%20%2F%20Sales%20Pitch-orange)
 ![Tech Stack](https://img.shields.io/badge/Tech-React%20%7C%20Tailwind%20%7C%20Vite-blue)
@@ -8,7 +8,7 @@
 ![Project Cover](./cover.png)
 ## 🎯 Project Background & Objective
 
-**El Palacio** is a traditional local business in Tartagal (Salta, Argentina) comprising a butcher shop, a meat distributor, and a fast-food venue. Despite their strong physical presence and high-quality products, their digital footprint was non-existent (manual orders via phone, no website, low Google visibility).
+**Alta Pinta** is a traditional local business in Tartagal (Salta, Argentina) comprising a butcher shop, a meat distributor, and a fast-food venue. Despite their strong physical presence and high-quality products, their digital footprint was non-existent (manual orders via phone, no website, low Google visibility).
 
 **The Goal:** To design and develop a high-conversion landing page that serves as a digital menu and ordering system, bridging the gap between their premium physical product and the digital customer experience.
 

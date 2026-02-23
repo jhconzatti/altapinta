@@ -38,11 +38,11 @@ All colors MUST be HSL.
 
     --radius: 0.5rem;
 
-    /* Custom Design Tokens - Dark Street Food Theme */
+    /* Custom Design Tokens - Alta Pinta Theme */
     --deep-black: 0 0% 4%;
     --charcoal: 0 0% 10%;
-    --vibrant-red: 0 73% 51%;
-    --golden-yellow: 48 96% 53%;
+    --vibrant-red: 38 100% 50%; /* Naranja/Rojo del Alta Pinta */
+    --golden-yellow: 45 100% 48%; /* Amarillo dorado del logo */
     --light-gray: 0 0% 85%;
     
     /* Gradients */
