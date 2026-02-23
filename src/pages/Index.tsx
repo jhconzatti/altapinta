@@ -262,6 +262,7 @@ const Index = () => {
               <div className="h-1 w-16 bg-vibrant-red ml-4"></div>
             </div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
+              {bebidas.map((item) => (
                 <Card
                   key={item.id}
                   className="overflow-hidden bg-card border-2 border-border hover:border-vibrant-red transition-all duration-300"
@@ -295,6 +296,8 @@ const Index = () => {
                 </Card>
               ))}
             </div>
+          </div>
+
           {/* Salsas */}
           <div>
             <div className="flex items-center justify-center mb-8">
@@ -343,7 +346,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* OLD - TO BE REMOVED */}}
+      {/* Footer */}
       <footer className="bg-charcoal text-white py-12 border-t-2 border-vibrant-red">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8 mb-8">
