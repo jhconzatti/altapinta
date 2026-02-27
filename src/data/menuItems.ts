@@ -110,14 +110,6 @@ export const menuItems: MenuItem[] = [
     category: "sandwiches",
   },
   {
-    id: 12,
-    name: "HAMBÚRGUER",
-    price: 6000,
-    description: "Hamburguesa clásica de carne",
-    image: hamburger,
-    category: "sandwiches",
-  },
-  {
     id: 13,
     name: "NAPO",
     price: 8500,
