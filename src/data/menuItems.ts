@@ -1,5 +1,5 @@
 import { MenuItem } from "@/types/menu";
-import heroBurger from "@/assets/hero-burger.jpg";
+import heroBurger from "@/assets/paty-simple.jpeg";
 import patySimple from "@/assets/paty-simple.jpeg";
 import patyDoble from "@/assets/paty-doble.jpeg";
 import cocaCola from "@/assets/coca-cola.png";
@@ -12,7 +12,6 @@ import criolla from "@/assets/criolla.jpeg";
 import mayonesaApio from "@/assets/mayonesa-de-apio.jpeg";
 import cheddar from "@/assets/cheddar.jpeg";
 import sandwichMila from "@/assets/sándwich-de-mila.jpeg";
-import hamburger from "@/assets/burger-classic.jpg";
 import papas from "@/assets/papas.jpeg";
 import papasAborizadas from "@/assets/papas-saborizadas.jpeg";
 import napo from "@/assets/napo.jpeg";
