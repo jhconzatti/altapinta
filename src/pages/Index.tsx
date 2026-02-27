@@ -10,7 +10,17 @@ import cocaCola from "@/assets/coca-cola.png";
 import cocoImg from "@/assets/coco.png";
 import limonada from "@/assets/limonada-con-menta-y-gengibre.png";
 import maracuya from "@/assets/maracuya.png";
-import salsa from "@/assets/salsa.jpeg";
+import guacamole from "@/assets/guacamole.jpeg";
+import choclo from "@/assets/choclo.jpeg";
+import criolla from "@/assets/criolla.jpeg";
+import mayonesaApio from "@/assets/mayonesa-de-apio.jpeg";
+import cheddar from "@/assets/cheddar.jpeg";
+import sandwichMila from "@/assets/sándwich-de-mila.jpeg";
+import hamburger from "@/assets/burger-classic.jpg";
+import papas from "@/assets/papas.jpeg";
+import papasAborizadas from "@/assets/papas-saborizadas.jpeg";
+import napo from "@/assets/napo.jpeg";
+import milaAlPlato from "@/assets/mila-al-plato-3-personas.jpeg";
 
 interface MenuItem {
   id: number;
@@ -18,7 +28,7 @@ interface MenuItem {
   price: number;
   description: string;
   image: string;
-  category: "sandwiches" | "bebidas" | "salsas";
+  category: "sandwiches" | "bebidas" | "salsas" | "acompanhamientos" | "platos";
 }
 
 interface CartItem extends MenuItem {
@@ -85,7 +95,7 @@ const Index = () => {
       name: "GUACAMOLE",
       price: 1500,
       description: "Salsa premium",
-      image: salsa,
+      image: guacamole,
       category: "salsas",
     },
     {
@@ -93,7 +103,7 @@ const Index = () => {
       name: "CHOCLO",
       price: 1200,
       description: "Salsa tradicional",
-      image: salsa,
+      image: choclo,
       category: "salsas",
     },
     {
@@ -101,20 +111,77 @@ const Index = () => {
       name: "CRIOLLA",
       price: 1200,
       description: "Salsa casera",
-      image: salsa,
+      image: criolla,
       category: "salsas",
     },
     {
       id: 10,
-      name: "APÍO",
+      name: "MAYONESA DE APÍO",
       price: 1200,
       description: "Salsa especial",
-      image: salsa,
+      image: mayonesaApio,
       category: "salsas",
+    },
+    {
+      id: 11,
+      name: "SÁNDWICH DE MILA",
+      price: 7500,
+      description: "Mila jugosa con ingredientes frescos",
+      image: sandwichMila,
+      category: "sandwiches",
+    },
+    {
+      id: 12,
+      name: "HAMBÚRGUER",
+      price: 6000,
+      description: "Hamburguesa clásica de carne",
+      image: hamburger,
+      category: "sandwiches",
+    },
+    {
+      id: 13,
+      name: "NAPO",
+      price: 8500,
+      description: "Sándwich napolitano con jamón y queso",
+      image: napo,
+      category: "sandwiches",
+    },
+    {
+      id: 14,
+      name: "PAPAS",
+      price: 1000,
+      description: "Porción de papas fritas",
+      image: papas,
+      category: "acompanhamientos",
+    },
+    {
+      id: 15,
+      name: "PAPAS SABORIZADAS",
+      price: 1500,
+      description: "Papas fritas condimentadas",
+      image: papasAborizadas,
+      category: "acompanhamientos",
+    },
+    {
+      id: 16,
+      name: "CHEDDAR",
+      price: 500,
+      description: "Queso fundido de cheddar",
+      image: cheddar,
+      category: "salsas",
+    },
+    {
+      id: 18,
+      name: "MILA AL PLATO PARA 3 PERSONAS",
+      price: 15000,
+      description: "Mila generosa para compartir",
+      image: milaAlPlato,
+      category: "platos",
     },
   ];
 
   const addToCart = (item: MenuItem) => {
+    const priceToUse = item.category === "acompanhamientos" ? 0 : item.price;
     setCart((prevCart) => {
       const existingItem = prevCart.find((cartItem) => cartItem.id === item.id);
       if (existingItem) {
@@ -124,7 +191,7 @@ const Index = () => {
             : cartItem
         );
       }
-      return [...prevCart, { ...item, quantity: 1 }];
+      return [...prevCart, { ...item, price: priceToUse, quantity: 1 }];
     });
   };
 
@@ -165,6 +232,8 @@ const Index = () => {
   const sandwiches = menuItems.filter((item) => item.category === "sandwiches");
   const bebidas = menuItems.filter((item) => item.category === "bebidas");
   const salsas = menuItems.filter((item) => item.category === "salsas");
+  const acompanhamientos = menuItems.filter((item) => item.category === "acompanhamientos");
+  const platos = menuItems.filter((item) => item.category === "platos");
 
   return (
     <div className="min-h-screen bg-deep-black text-foreground">
@@ -180,7 +249,7 @@ const Index = () => {
           <div className="flex items-center justify-center mb-6">
             <Flame className="w-16 h-16 text-vibrant-red animate-pulse" />
           </div>
-          <h1 className="font-heading text-6xl md:text-8xl font-bold text-white mb-4 tracking-wider">
+          <h1 className="font-heading text-4xl sm:text-5xl md:text-8xl font-bold text-white mb-4 tracking-wider">
             ALTA PINTA
             <br />
             FAST FOOD
@@ -204,10 +273,10 @@ const Index = () => {
       </section>
 
       {/* Menu Section */}
-      <section id="menu" className="py-20 bg-deep-black">
+      <section id="menu" className="py-32 bg-deep-black" aria-label="Menú de productos">
         <div className="container mx-auto px-4">
           {/* Sandwiches */}
-          <div className="mb-16">
+          <div className="mb-24">
             <div className="flex items-center justify-center mb-8">
               <div className="h-1 w-16 bg-vibrant-red mr-4"></div>
               <h2 className="font-heading text-5xl md:text-6xl font-bold text-white tracking-wider">
@@ -215,11 +284,11 @@ const Index = () => {
               </h2>
               <div className="h-1 w-16 bg-vibrant-red ml-4"></div>
             </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6 max-w-2xl mx-auto">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6 mx-auto px-4 sm:px-6">
               {sandwiches.map((item) => (
                 <Card
                   key={item.id}
-                  className="overflow-hidden bg-card border-2 border-border hover:border-vibrant-red transition-all duration-300"
+                  className="overflow-hidden bg-card border-2 border-border hover:border-vibrant-red transition-all duration-300 h-full flex flex-col"
                 >
                   <div className="aspect-square overflow-hidden">
                     <img
@@ -228,19 +297,23 @@ const Index = () => {
                       className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                     />
                   </div>
-                  <div className="p-5">
+                  <div className="p-5 flex-1 flex flex-col">
                     <h3 className="font-heading text-2xl font-bold mb-2 text-white tracking-wide">
                       {item.name}
                     </h3>
                     <p className="text-light-gray text-sm mb-4 line-clamp-2">
                       {item.description}
                     </p>
-                    <div className="flex items-center justify-between">
-                      <span className="font-heading text-3xl font-bold text-golden-yellow">
-                        ${item.price}
-                      </span>
+                    <div className="flex items-center justify-between mt-auto">
+                      {item.category === "acompanhamientos" ? (
+                        <span className="font-heading text-3xl font-bold text-golden-yellow">
+                          INCLUIDO
+                        </span>
+                      ) : (
+                        <span className="font-heading text-3xl font-bold text-golden-yellow">{"$" + item.price}</span>
+                      )}
                       <Button
-                        className="bg-vibrant-red hover:bg-vibrant-red/90 text-white font-heading tracking-wide"
+                        className="bg-vibrant-red hover:bg-vibrant-red/90 text-white font-heading tracking-wide focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-golden-yellow"
                         onClick={() => addToCart(item)}
                       >
                         AGREGAR
@@ -253,7 +326,7 @@ const Index = () => {
           </div>
 
           {/* Bebidas */}
-          <div>
+          <div className="mb-24">
             <div className="flex items-center justify-center mb-8">
               <div className="h-1 w-16 bg-vibrant-red mr-4"></div>
               <h2 className="font-heading text-5xl md:text-6xl font-bold text-white tracking-wider">
@@ -261,11 +334,11 @@ const Index = () => {
               </h2>
               <div className="h-1 w-16 bg-vibrant-red ml-4"></div>
             </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-4xl mx-auto">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mx-auto px-4 sm:px-6">
               {bebidas.map((item) => (
                 <Card
                   key={item.id}
-                  className="overflow-hidden bg-card border-2 border-border hover:border-vibrant-red transition-all duration-300"
+                  className="overflow-hidden bg-card border-2 border-border hover:border-vibrant-red transition-all duration-300 h-full flex flex-col"
                 >
                   <div className="aspect-square overflow-hidden">
                     <img
@@ -274,19 +347,23 @@ const Index = () => {
                       className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                     />
                   </div>
-                  <div className="p-5">
+                  <div className="p-5 flex-1 flex flex-col">
                     <h3 className="font-heading text-2xl font-bold mb-2 text-white tracking-wide">
                       {item.name}
                     </h3>
                     <p className="text-light-gray text-sm mb-4 line-clamp-2">
                       {item.description}
                     </p>
-                    <div className="flex items-center justify-between">
-                      <span className="font-heading text-3xl font-bold text-golden-yellow">
-                        ${item.price}
-                      </span>
+                    <div className="flex items-center justify-between mt-auto">
+                      {item.category === "acompanhamientos" ? (
+                        <span className="font-heading text-3xl font-bold text-golden-yellow">
+                          INCLUIDO
+                        </span>
+                      ) : (
+                        <span className="font-heading text-3xl font-bold text-golden-yellow">{"$" + item.price}</span>
+                      )}
                       <Button
-                        className="bg-vibrant-red hover:bg-vibrant-red/90 text-white font-heading tracking-wide"
+                        className="bg-vibrant-red hover:bg-vibrant-red/90 text-white font-heading tracking-wide focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-golden-yellow"
                         onClick={() => addToCart(item)}
                       >
                         AGREGAR
@@ -299,7 +376,7 @@ const Index = () => {
           </div>
 
           {/* Salsas */}
-          <div>
+          <div className="mb-24">
             <div className="flex items-center justify-center mb-8">
               <div className="h-1 w-16 bg-vibrant-red mr-4"></div>
               <h2 className="font-heading text-5xl md:text-6xl font-bold text-white tracking-wider">
@@ -307,11 +384,11 @@ const Index = () => {
               </h2>
               <div className="h-1 w-16 bg-vibrant-red ml-4"></div>
             </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mx-auto px-4 sm:px-6">
               {salsas.map((item) => (
                 <Card
                   key={item.id}
-                  className="overflow-hidden bg-card border-2 border-border hover:border-vibrant-red transition-all duration-300"
+                  className="overflow-hidden bg-card border-2 border-border hover:border-vibrant-red transition-all duration-300 h-full flex flex-col"
                 >
                   <div className="aspect-square overflow-hidden">
                     <img
@@ -320,17 +397,121 @@ const Index = () => {
                       className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                     />
                   </div>
-                  <div className="p-5">
+                  <div className="p-5 flex-1 flex flex-col">
                     <h3 className="font-heading text-2xl font-bold mb-2 text-white tracking-wide">
                       {item.name}
                     </h3>
                     <p className="text-light-gray text-sm mb-4 line-clamp-2">
                       {item.description}
                     </p>
-                    <div className="flex items-center justify-between">
-                      <span className="font-heading text-3xl font-bold text-golden-yellow">
-                        ${item.price}
-                      </span>
+                    <div className="flex items-center justify-between mt-auto">
+                      {item.category === "acompanhamientos" ? (
+                        <span className="font-heading text-3xl font-bold text-golden-yellow">
+                          INCLUIDO
+                        </span>
+                      ) : (
+                        <span className="font-heading text-3xl font-bold text-golden-yellow">{"$" + item.price}</span>
+                      )}
+                      <Button
+                        className="bg-vibrant-red hover:bg-vibrant-red/90 text-white font-heading tracking-wide focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-golden-yellow"
+                        onClick={() => addToCart(item)}
+                      >
+                        AGREGAR
+                      </Button>
+                    </div>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </div>
+
+          {/* Acompañamientos */}
+          <div className="mb-24">
+            <div className="flex items-center justify-center mb-8">
+              <div className="h-1 w-16 bg-vibrant-red mr-4"></div>
+              <h2 className="font-heading text-5xl md:text-6xl font-bold text-white tracking-wider">
+                ACOMPAÑAMIENTOS
+              </h2>
+              <div className="h-1 w-16 bg-vibrant-red ml-4"></div>
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mx-auto px-4 sm:px-6">
+              {acompanhamientos.map((item) => (
+                <Card
+                  key={item.id}
+                  className="overflow-hidden bg-card border-2 border-border hover:border-vibrant-red transition-all duration-300 h-full flex flex-col"
+                >
+                  <div className="aspect-square overflow-hidden">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                    />
+                  </div>
+                  <div className="p-5 flex-1 flex flex-col">
+                    <h3 className="font-heading text-2xl font-bold mb-2 text-white tracking-wide">
+                      {item.name}
+                    </h3>
+                    <p className="text-light-gray text-sm mb-4 line-clamp-2">
+                      {item.description}
+                    </p>
+                    <div className="flex items-center justify-between mt-auto">
+                      {item.category === "acompanhamientos" ? (
+                        <span className="font-heading text-3xl font-bold text-golden-yellow">
+                          INCLUIDO
+                        </span>
+                      ) : (
+                        <span className="font-heading text-3xl font-bold text-golden-yellow">{"$" + item.price}</span>
+                      )}
+                      <Button
+                        className="bg-vibrant-red hover:bg-vibrant-red/90 text-white font-heading tracking-wide focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-golden-yellow"
+                        onClick={() => addToCart(item)}
+                      >
+                        AGREGAR
+                      </Button>
+                    </div>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </div>
+
+          {/* Platos */}
+          <div>
+            <div className="flex items-center justify-center mb-8">
+              <div className="h-1 w-16 bg-vibrant-red mr-4"></div>
+              <h2 className="font-heading text-5xl md:text-6xl font-bold text-white tracking-wider">
+                PLATOS ESPECIALES
+              </h2>
+              <div className="h-1 w-16 bg-vibrant-red ml-4"></div>
+            </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6 mx-auto px-4 sm:px-6">
+              {platos.map((item) => (
+                <Card
+                  key={item.id}
+                  className="overflow-hidden bg-card border-2 border-border hover:border-vibrant-red transition-all duration-300 h-full flex flex-col"
+                >
+                  <div className="aspect-square overflow-hidden">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                    />
+                  </div>
+                  <div className="p-5 flex-1 flex flex-col">
+                    <h3 className="font-heading text-2xl font-bold mb-2 text-white tracking-wide">
+                      {item.name}
+                    </h3>
+                    <p className="text-light-gray text-sm mb-4 line-clamp-2">
+                      {item.description}
+                    </p>
+                    <div className="flex items-center justify-between mt-auto">
+                      {item.category === "acompanhamientos" ? (
+                        <span className="font-heading text-3xl font-bold text-golden-yellow">
+                          INCLUIDO
+                        </span>
+                      ) : (
+                        <span className="font-heading text-3xl font-bold text-golden-yellow">{"$" + item.price}</span>
+                      )}
                       <Button
                         className="bg-vibrant-red hover:bg-vibrant-red/90 text-white font-heading tracking-wide"
                         onClick={() => addToCart(item)}
