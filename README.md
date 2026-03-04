@@ -52,12 +52,11 @@ Elegí un **enfoque Frontend sin Estado**:
     npm run dev
     ```
 
-## 👨‍💻 Autor
+## 👨‍💻 Criador
 
-**Juliano Conzatti** *Desarrollador Full Stack & Estratega Digital*
+**FCE Tech** *Desenvolvimento Web & Estratégia Digital*
 
-[![Portfolio](https://img.shields.io/badge/Portfolio-Visita%20mi%20Sitio-brightgreen)](https://julianoconzatti.vercel.app/)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Conecta-blue)](https://linkedin.com/in/su-linkedin)
+[![Portfolio](https://img.shields.io/badge/Portfolio-Visita%20mi%20Sitio-brightgreen)](https://fcetech.vercel.app/)
 
 ---
 *Nota: Este proyecto fue desarrollado como una propuesta estratégica para digitalizar un negocio local real.*

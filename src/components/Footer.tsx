@@ -77,13 +77,13 @@ export const Footer: React.FC<FooterProps> = ({ whatsappNumber }) => {
             © 2026 Alta Pinta Fast Food. Todos los derechos reservados.
           </p>
           <a 
-              href="https://julianoconzatti.vercel.app/" 
+              href="https://fcetech.vercel.app/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-xs flex items-center gap-2 hover:text-golden-yellow transition-colors duration-300 group"
             >
               <Code size={14} className="group-hover:rotate-12 transition-transform" />
-              <span>Desarrollado por <span className="font-semibold text-white group-hover:text-golden-yellow transition-colors">Juliano Conzatti</span></span>
+              <span>Desenvolvido por <span className="font-semibold text-white group-hover:text-golden-yellow transition-colors">FCE Tech</span></span>
             </a>
         </div>
       </div>
